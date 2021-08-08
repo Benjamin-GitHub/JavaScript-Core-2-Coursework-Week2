@@ -1,6 +1,5 @@
 function populateTodoList(todos) {
-  let list = document.querySelector("#todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+// Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
   todos.forEach(addTodo);
 }
 
@@ -50,14 +49,24 @@ function addNewTodo(event) {
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let todoInput = document.querySelector("#todoInput");
 
-  if (todoInput != "") {
-    let newTodo = [{ task: todoInput.value, completed: false }];
-    todos.push(newTodo);
-  }
-
-  populateTodoList(newTodo);
-  todoInput.value = "";
+  if (todoInput.value.length != 0) {
+    let newTodo = { task: todoInput.value, completed: false };
+    addTodo(newTodo);
+    todos.push(newTodo.value);
+    todoInput.value = "";
+    } else
+  alert("You should write some Task before adding!!");
 }
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {}
+function deleteAllCompletedTodos(event) {
+  event.preventDefault();
+  let liItems = document.querySelectorAll("li");
+  let list = document.querySelector("#todo-list");
+
+  liItems.forEach((li) => {
+    if (li.style.textDecoration === "line-through") {
+      list.removeChild(li);
+    }
+  });
+}

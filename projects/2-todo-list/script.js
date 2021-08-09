@@ -1,5 +1,5 @@
 function populateTodoList(todos) {
-// Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
   todos.forEach(addTodo);
 }
 
@@ -54,8 +54,7 @@ function addNewTodo(event) {
     addTodo(newTodo);
     todos.push(newTodo.value);
     todoInput.value = "";
-    } else
-  alert("You should write some Task before adding!!");
+  } else alert("You should write some Task before adding!!");
 }
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).

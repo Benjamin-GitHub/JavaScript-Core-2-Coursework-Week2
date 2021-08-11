@@ -10,6 +10,7 @@ function readingList(books) {
   ul.style.display = "flex";
   ul.style.flexWrap = "wrap";
   ul.style.alignItems = "column";
+  ul.style.listStyleType = "none";
 
   books.forEach((bookDetails) => {
     let li = document.createElement("li");
@@ -28,7 +29,7 @@ function readingList(books) {
     image.style.maxHeight = "270px";
     image.style.maxWidth = "180px";
 
-    if (books.alreadyReads) {
+    if (bookDetails.alreadyRead) {
       li.style.backgroundColor = "green";
     } else li.style.backgroundColor = "red";
   });
